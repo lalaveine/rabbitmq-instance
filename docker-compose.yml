@@ -5,6 +5,8 @@ services:
     ports:
       - "15672:15672"
       - "5672:5672"
+      - "5671:5671"
+      - "4369:4369"
     network_mode: "host"
     volumes:
       - ./conf/rabbitmq/.erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
