@@ -5,6 +5,7 @@ services:
     ports:
       - "15672:15672"
       - "5672:5672"
+    hostname: $HOSTNAME
     volumes:
       - ./conf/rabbitmq/.erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
       - ./conf/rabbit-1/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
