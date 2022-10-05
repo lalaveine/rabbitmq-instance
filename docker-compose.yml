@@ -5,11 +5,11 @@ services:
     ports:
       - "15672:15672"
       - "5672:5672"
+    network_mode: "host"
     volumes:
       - ./conf/rabbitmq/.erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
       - ./conf/rabbit-1/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
       - ./rabbitmq_data-1:/var/lib/rabbitmq
-      - /etc/hostname:/etc/hostname:ro
     environment:
       - RABBITMQ_CONFIG_FILE=/etc/rabbitmq/rabbitmq.conf
     stop_grace_period: 1m
