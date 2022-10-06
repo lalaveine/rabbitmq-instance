@@ -1,0 +1,76 @@
+{
+  "users": [],
+  "vhosts": [
+    {
+      "name": "/"
+    }
+  ],
+  "permissions": [],
+  "parameters": [],
+  "policies": [
+    {
+      "vhost": "VIA",
+      "name": "DLX",
+      "pattern": ".*",
+      "apply-to": "queues",
+      "definition": {
+        "dead-letter-exchange": "dead_letter"
+      },
+      "priority": 0
+    }
+  ],
+  "queues": [
+    {
+      "name": "store_to_es",
+      "vhost": "VIA",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
+    },
+    {
+      "name": "store_to_mongodb",
+      "vhost": "VIA",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
+    }
+  ],
+  "exchanges": [
+    {
+      "name": "data_incoming",
+      "vhost": "VIA",
+      "type": "fanout",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "sms_incoming",
+      "vhost": "VIA",
+      "type": "fanout",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    }
+  ],
+  "bindings": [
+    {
+      "source": "data_incoming",
+      "vhost": "VIA",
+      "destination": "store_to_es",
+      "destination_type": "queue",
+      "routing_key": "",
+      "arguments": {}
+    },
+    {
+      "source": "sms_incoming",
+      "vhost": "VIA",
+      "destination": "store_to_mongodb",
+      "destination_type": "queue",
+      "routing_key": "",
+      "arguments": {}
+    }
+  ]
+}
