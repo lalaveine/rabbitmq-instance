@@ -1,12 +1,9 @@
 {
-  "users": [],
   "vhosts": [
     {
       "name": "/"
     }
   ],
-  "permissions": [],
-  "parameters": [],
   "policies": [
     {
       "vhost": "VIA",
