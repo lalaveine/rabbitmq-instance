@@ -6,7 +6,7 @@
   ],
   "policies": [
     {
-      "vhost": "VIA",
+      "vhost": "/",
       "name": "DLX",
       "pattern": ".*",
       "apply-to": "queues",
@@ -19,14 +19,14 @@
   "queues": [
     {
       "name": "store_to_es",
-      "vhost": "VIA",
+      "vhost": "/",
       "durable": true,
       "auto_delete": false,
       "arguments": {}
     },
     {
       "name": "store_to_mongodb",
-      "vhost": "VIA",
+      "vhost": "/",
       "durable": true,
       "auto_delete": false,
       "arguments": {}
@@ -35,7 +35,7 @@
   "exchanges": [
     {
       "name": "data_incoming",
-      "vhost": "VIA",
+      "vhost": "/",
       "type": "fanout",
       "durable": true,
       "auto_delete": false,
@@ -44,7 +44,7 @@
     },
     {
       "name": "sms_incoming",
-      "vhost": "VIA",
+      "vhost": "/",
       "type": "fanout",
       "durable": true,
       "auto_delete": false,
@@ -55,7 +55,7 @@
   "bindings": [
     {
       "source": "data_incoming",
-      "vhost": "VIA",
+      "vhost": "/",
       "destination": "store_to_es",
       "destination_type": "queue",
       "routing_key": "",
@@ -63,7 +63,7 @@
     },
     {
       "source": "sms_incoming",
-      "vhost": "VIA",
+      "vhost": "/",
       "destination": "store_to_mongodb",
       "destination_type": "queue",
       "routing_key": "",
