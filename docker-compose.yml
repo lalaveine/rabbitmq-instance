@@ -11,7 +11,7 @@ services:
     volumes:
       - ./conf/rabbitmq/.erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
       - ./conf/rabbit-1/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
-      - ./conf/rabbit-1/rabbitmq_definitions.json:/etc/rabbitmq/rabbitmq_definitions.json
+      - "./conf/rabbit-1/rabbitmq_definitions.json:/etc/rabbitmq/rabbitmq_definitions.json"
       - ./rabbitmq_data-1:/var/lib/rabbitmq
     environment:
       - RABBITMQ_CONFIG_FILE=/etc/rabbitmq/rabbitmq.conf
