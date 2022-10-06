@@ -7,67 +7,15 @@
   "policies": [
     {
       "vhost": "/",
-      "name": "DLX",
+      "name": "ha",
       "pattern": ".*",
       "apply-to": "queues",
       "definition": {
-        "dead-letter-exchange": "dead_letter"
+        "ha-sync-mode": "automatic",
+        "ha-mode": "all",
+        "queue-mode": "lazy"
       },
       "priority": 0
-    }
-  ],
-  "queues": [
-    {
-      "name": "store_to_es",
-      "vhost": "/",
-      "durable": true,
-      "auto_delete": false,
-      "arguments": {}
-    },
-    {
-      "name": "store_to_mongodb",
-      "vhost": "/",
-      "durable": true,
-      "auto_delete": false,
-      "arguments": {}
-    }
-  ],
-  "exchanges": [
-    {
-      "name": "data_incoming",
-      "vhost": "/",
-      "type": "fanout",
-      "durable": true,
-      "auto_delete": false,
-      "internal": false,
-      "arguments": {}
-    },
-    {
-      "name": "sms_incoming",
-      "vhost": "/",
-      "type": "fanout",
-      "durable": true,
-      "auto_delete": false,
-      "internal": false,
-      "arguments": {}
-    }
-  ],
-  "bindings": [
-    {
-      "source": "data_incoming",
-      "vhost": "/",
-      "destination": "store_to_es",
-      "destination_type": "queue",
-      "routing_key": "",
-      "arguments": {}
-    },
-    {
-      "source": "sms_incoming",
-      "vhost": "/",
-      "destination": "store_to_mongodb",
-      "destination_type": "queue",
-      "routing_key": "",
-      "arguments": {}
     }
   ]
 }
