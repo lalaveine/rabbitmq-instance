@@ -9,7 +9,7 @@
       "vhost": "/",
       "name": "ha",
       "pattern": ".*",
-      "apply-to": "queues-and-exchanges",
+      "apply-to": "all",
       "definition": {
         "ha-sync-mode": "automatic",
         "ha-mode": "all",
