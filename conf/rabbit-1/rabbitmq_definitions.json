@@ -13,6 +13,9 @@
       "definition": {
         "ha-sync-mode": "automatic",
         "ha-mode": "all",
+        "ha-params": "all",
+        "ha-promote-on-failure": "always",
+        "ha-promote-on-shutdown": "always",
         "queue-mode": "lazy"
       },
       "priority": 0
